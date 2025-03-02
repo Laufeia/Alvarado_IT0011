@@ -1,7 +1,6 @@
 import os
 import csv
 
-# Set the working directory to the script's directory.
 try:
     script_dir = os.path.dirname(os.path.abspath(__file__))
 except NameError:
@@ -15,11 +14,9 @@ currency_names = {}
 
 try:
     with open(file_path, newline="", encoding="latin-1") as csvfile:
-        # Change delimiter if needed (',' for comma-separated, '\t' for tab-separated)
         reader = csv.DictReader(csvfile, delimiter=",")
         print("Detected fieldnames:", reader.fieldnames)
         for row in reader:
-            # Adjust header names if needed.
             code = row["code"].strip()
             name = row["name"].strip()
             rate = float(row["rate"].strip())
